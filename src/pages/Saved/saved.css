@@ -1,0 +1,22 @@
+.savedContainer{
+    display: flex;
+    width: 100%;
+    background-color: #4B0928;
+}
+
+.saved{
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    background-color: #1E1E1E;
+}
+
+.savedWrapper{
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .saved{
+        height: 100vh;
+    }
+}
