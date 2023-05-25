@@ -25,7 +25,7 @@ export default function ModalHablarAdmi() {
             <Modal.Body className='modalbody'>
             <div className="contenedor">
                 <ReactPlayer
-                url={'https://youtu.be/WpEre5XKTqs'}
+                url={'https://youtu.be/gX3ej0jZPpI'}
                 width='100%'
                 height='100%'
                 controls
