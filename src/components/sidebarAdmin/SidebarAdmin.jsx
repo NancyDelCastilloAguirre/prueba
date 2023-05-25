@@ -12,27 +12,31 @@ export default function SidebarAdmin() {
       <div className="sidebarWrapper">
         <ul className="sidebarList">
             <li className="sidebarListItem">
-                <Home className="sidebarIcon" />
+                
                 <Link  to="/homeadmin" style={{textDecoration:"none",color:"white"}}>
+                  <Home className="sidebarIcon" />
                   <span className="sidebarListItemText">Inicio</span>
                 </Link>
             </li>
             <li className="sidebarListItem">
-                <Forum  className="sidebarIcon" />
+                
                 <Link  to="/chat" style={{textDecoration:"none",color:"white"}}>
+                  <Forum  className="sidebarIcon" />
                   <span className="sidebarListItemText">Chats</span>
                 </Link>
             </li>
             <li className="sidebarListItem">
-                <PictureAsPdfOutlined  className="sidebarIcon" />
+                
                 <Link  to="/bobadmin" style={{textDecoration:"none",color:"white"}}>
+                  <PictureAsPdfOutlined  className="sidebarIcon" />
                   <span className="sidebarListItemText">PDFBOB</span>
                 </Link>
                 <ModalActualizarBOB/>
             </li>
             <li className="sidebarListItem">
-                <Analytics  className="sidebarIcon" />
+                
                 <Link  to="/estadisticas" style={{textDecoration:"none",color:"white"}}>
+                  <Analytics  className="sidebarIcon" />
                   <span className="sidebarListItemText">Estadisticas</span>
                 </Link>
             </li>
