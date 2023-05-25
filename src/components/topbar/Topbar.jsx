@@ -12,7 +12,7 @@ export default function Topbar() {
     <><div className="topbarContainer">
       <div className="topbarLeft">
         <Link to="/homeAdmin" style={{ textDecoration: "none" }}>
-          <span className="logo">SONA</span><span className="logoAdmin">Admin</span>
+          <span className="logo">SONA</span>
         </Link>
       </div>
       <div className="topbarCenter"></div>
