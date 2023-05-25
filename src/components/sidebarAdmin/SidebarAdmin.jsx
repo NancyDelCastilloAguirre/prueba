@@ -28,7 +28,7 @@ export default function SidebarAdmin() {
                 <Link  to="/bobadmin" style={{textDecoration:"none",color:"white"}}>
                   <span className="sidebarListItemText">PDFBOB</span>
                 </Link>
-                <div className="modales"><ModalActualizarBOB/></div>
+                <ModalActualizarBOB/>
             </li>
             <li className="sidebarListItem">
                 <Analytics  className="sidebarIcon" />
