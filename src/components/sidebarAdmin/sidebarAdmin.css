@@ -37,3 +37,63 @@
 .sidebarIcon{
     margin-right: 15px;
 }
+
+  .modales{
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 9.4px;
+    padding-left: 5px;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .sidebar {
+      display: block;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 767px) {
+      .mobileVisible {
+        display: block;
+      }
+      .tab{
+        position: relative;
+        width: 200px;
+        height: 50px;
+        z-index: 1;
+        user-select: none;
+  
+      }
+      
+      .tab .menutoggle{
+        position: absolute;
+        width: 60px;
+        height: 60px;
+      }
+      
+      .tab ul.menu{
+        position: absolute;
+        inset: 0;
+        background-color: #552027;
+        display: flex;
+        align-items: center;
+        gap: 55px;
+        box-shadow: 0 -15px 25px rgba(red, green, blue, alpha);
+      
+      }
+      .tab ul.menu li{
+        list-style: none;
+      }
+      
+      .mobileHidden {
+        display: none;
+      }
+      .iconBOB{
+        height: 23px;
+        width: 23x; 
+        object-fit: fill;
+        margin-bottom: 5px;
+    }
+      
+    }
