@@ -25,7 +25,7 @@ export default function ModalEditarPerfil() {
             <Modal.Body className='modalbody'>
             <div className="contenedor">
                 <ReactPlayer
-                url={'https://youtu.be/23jsLInJXvk'}
+                url={'https://youtu.be/hOE11i0vuA8'}
                 width='100%'
                 height='100%'
                 controls
