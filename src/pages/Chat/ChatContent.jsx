@@ -35,7 +35,7 @@ const ChatContent = ({
 
   useEffect(() => {
     if (!socket.current) {
-      socket.current = io(`https://socketsapi-production.up.railway.app`);
+      socket.current = io(`https://socketsapi-production-3e72.up.railway.app`);
     }
   
     if (currentChat) {
