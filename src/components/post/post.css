@@ -40,7 +40,7 @@ a:visited {
 .postProfileImg{
     width: 87px;
     height: 87px;
-    border-radius: 50%
+    border-radius: 50%;
     object-fit: cover;
 }
 
