@@ -27,4 +27,7 @@
         height: 100%;
         padding: 20px;
     }
+    .savedContainer{
+        height: 100vh;
+    }
 }
