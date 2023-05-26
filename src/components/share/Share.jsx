@@ -37,7 +37,7 @@ export default function Share() {
       // console.log("OBJETO POST NUEVO "+newPost.img);
       console.log(data)
       try {
-      axios.post(`https://apisona30-production.up.railway.app/upload`,data, {
+      axios.post(`https://apisona30-production-635f.up.railway.app/upload`,data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -50,7 +50,7 @@ export default function Share() {
       }
     }
     try {
-      const response = await axios.post(`https://apisona30-production.up.railway.app/api/posts`,newPost);
+      const response = await axios.post(`https://apisona30-production-635f.up.railway.app/api/posts`,newPost);
       const postId = response.data._id; // Obtener el ID del post creado
       console.log('POST CREADO CON EXITO '+postId);
       window.location.reload()
