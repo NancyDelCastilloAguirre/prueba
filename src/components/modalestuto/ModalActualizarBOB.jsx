@@ -19,7 +19,7 @@ export default function ModalPublicar() {
         <HelpOutline onClick={handleShow} className="sidebarIcon"/>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header className='modalheader'>
-            <Modal.Title className='modaltitle'>¿Cómo actualizar a BOB (ChatBot)</Modal.Title>
+            <Modal.Title className='modaltitle'>¿Cómo actualizar a BOB (ChatBot)?</Modal.Title>
             </Modal.Header>
             <Modal.Body className='modalbody'>
             <div className="contenedor">
