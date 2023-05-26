@@ -12,7 +12,7 @@ import jwt_decode from "jwt-decode"
 
 
 const { Configuration, OpenAIApi }=require("openai");
-
+console.log(process.env.REACT_APP_PUBLIC_KEY)
 const config=new Configuration({
     apiKey: process.env.REACT_APP_PUBLIC_KEY
 });
