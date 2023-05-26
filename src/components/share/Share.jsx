@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { AttachFileOutlined } from "@mui/icons-material";
 import { red } from '@mui/material/colors';
-import { URL } from '../../URL';
+import { IP } from '../../IP';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 
@@ -13,6 +13,7 @@ export default function Share() {
   const [show, setShow] = useState(false);
   const [asunto, setAsunto] = useState("");
   const [contenido, setContenido] = useState("");
+  const [url, setUrl] = useState("");
   const [file, setFile] = useState(null);
   const token = window.localStorage.getItem("token");
   const decodeToken = jwt_decode(token);
@@ -23,6 +24,7 @@ export default function Share() {
       userId: userId,
       asunto: asunto,
       desc: contenido,
+      link: url,
     };
     if (file) {
       var data = new FormData();
@@ -36,7 +38,7 @@ export default function Share() {
       // console.log("OBJETO POST NUEVO "+newPost.img);
       console.log(data)
       try {
-      axios.post(`${URL}upload`,data, {
+      axios.post(`https://apisona30-production.up.railway.app/upload`,data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -49,10 +51,7 @@ export default function Share() {
       }
     }
     try {
-      console.log(userId);
-      console.log(asunto);
-      console.log(contenido);
-      const response = await axios.post(`${URL}api/posts`,newPost);
+      const response = await axios.post(`https://apisona30-production.up.railway.app/api/posts`,newPost);
       const postId = response.data._id; // Obtener el ID del post creado
       console.log('POST CREADO CON EXITO '+postId);
       window.location.reload()
@@ -69,7 +68,6 @@ export default function Share() {
   };
   
   const handleShow = () => setShow(true);
-  
   return (
     <>
       <button className="modalbuttonRed" onClick={handleShow}>
@@ -100,14 +98,26 @@ export default function Share() {
               className="mb-3"
               controlId="exampleForm.ControlTextarea"
             >
-              <Form.Label>Contenido</Form.Label>
+            <Form.Label>Contenido</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
                 placeholder="Escribe el contenido de la publicación "
                 className="forminput"
+                onChange={(e) => {setContenido(e.target.value)}}
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlInputText"
+            >
+              <Form.Label>Link</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingrese una URL"
+                className="forminput"
                 onChange={(e) => {
-                  setContenido(e.target.value);
+                  setUrl(e.target.value);
                 }}
               />
             </Form.Group>
