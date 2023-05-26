@@ -14,6 +14,13 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
+  const handleKeyDown = async (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+     handleLogin();
+    }
+  };
+
 
   const handleLogin = async () =>{
     try {
@@ -117,6 +124,8 @@ export default function Login() {
     setIsReadyForInstall(false);
   }
 
+  
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -135,6 +144,7 @@ export default function Login() {
               className="loginInput"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
             <p className="loginTexto">Contraseña</p>
             <input 
@@ -143,6 +153,7 @@ export default function Login() {
               placeholder="Contraseña" 
               className="loginInput" 
               value={password}
+              onKeyDown={handleKeyDown}
               onChange={(e)=>setPassword(e.target.value)}  
             />
             <Link to="/forgotpassword" style={{textDecoration:"none",color:"white"}}>
