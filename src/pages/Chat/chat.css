@@ -176,8 +176,10 @@
       display: none;
     }
     .butt{
-      background-color: #F1B424;
-      color: white;
+      background-color: #4b0928;
+      color: #fff;
+      width: 320px;
+      height: 40px;
     }
     .draw{
       background-color: #302e2e!important;
