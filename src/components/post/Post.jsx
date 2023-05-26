@@ -102,7 +102,7 @@ export default function Post(props) {
         <div className="postCenter">
                 <div className="postDescripcion">{post?.desc}</div>
                 <a href={post?.link}><div className="postLink">{post?.link}</div></a>
-                <img className='postImg' src={PF+post.img} alt=""></img>
+                <center><img className='postImg' src={PF+post.img} alt=""></img></center>
             </div>
             <div className="postBottom">
                 <div className="postBottomLeft">
