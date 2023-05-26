@@ -77,7 +77,7 @@ a:visited {
 }
 
 .postImg{
-    width: 100%;
+    width: auto;
     max-height: 480px;
     max-width: 920px;
     padding-top: 20px;
