@@ -21,9 +21,10 @@
         width: 100%;
         padding: 0px;
         margin:0;
+        height: 100vh;
     }
     .savedWrapper{
         height: 100%;
-        padding: 15px;
+        padding: 20px;
     }
 }
