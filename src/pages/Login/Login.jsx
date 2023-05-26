@@ -4,10 +4,15 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { URL } from "../../URL";
 import jwt_decode from "jwt-decode"
-
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 export default function Login() {
   const errRef = useRef();
+  const [showPassword, setShowPassword] = useState(false);
 
+  const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+  }
   const navigate = useNavigate ();
   const [isReadyForInstall, setIsReadyForInstall] = useState(false); 
   const [username, setUsername] = useState('');
@@ -137,6 +142,8 @@ export default function Login() {
             <p className="loginBienvenida">Bienvenido a SONA</p>
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <p className="loginTexto">Nombre de Usuario</p>   
+            <div className="inputContainer-2">
+
             <input 
               type="text"
               placeholder="Usuario" 
@@ -146,19 +153,32 @@ export default function Login() {
               onChange={(e) => setUsername(e.target.value)}
               onKeyDown={handleKeyDown}
             />
+            </div>
+            <div className="inputContainer">
             <p className="loginTexto">Contraseña</p>
-            <input 
-              type="password" 
-              id="Pass" 
-              placeholder="Contraseña" 
-              className="loginInput" 
-              value={password}
-              onKeyDown={handleKeyDown}
-              onChange={(e)=>setPassword(e.target.value)}  
-            />
+              <input 
+                  type={showPassword ? "text" : "password"} 
+                  id="Pass" 
+                  placeholder="Contraseña" 
+                  className="loginInput" 
+                  value={password}
+                  onKeyDown={handleKeyDown}
+                  onChange={(e)=>setPassword(e.target.value)}  
+              />
+              <button onClick={togglePasswordVisibility} className="togglePasswordButton">
+              {showPassword ? 
+                <RemoveRedEyeIcon alt="hide" /> :
+                <VisibilityOffIcon alt="show" /> 
+            }
+              </button>
+          </div>
             <Link to="/forgotpassword" style={{textDecoration:"none",color:"white"}}>
               <p className="loginForgot">Olvidaste tu contraseña?</p>
             </Link>
+
+            
+
+
             <button className="loginButton" onClick={handleLogin}>Iniciar sesión</button>
             <Link to="/register" className="loginRegister" style={{textDecoration:"none",color:"white"}}>
               Crea una cuenta  
