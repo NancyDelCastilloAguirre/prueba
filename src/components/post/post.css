@@ -41,6 +41,7 @@ a:visited {
     width: 87px;
     height: 87px;
     border-radius: 50%
+    object-fit: cover;
 }
 
 .postUsername{
