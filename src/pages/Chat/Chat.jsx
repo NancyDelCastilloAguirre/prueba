@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Autenticado from "../../components/Autenticado/Auntenticado";
 import { Anchor, Drawer, Button } from 'antd';
+import {MarkUnreadChatAlt} from "@mui/icons-material"
 
 export default function Chat() {
   const navigate = useNavigate();
@@ -138,7 +139,7 @@ export default function Chat() {
         <div className="mobileVisible">
           <center>
             <Button className="butt" onClick={showDrawer}>
-            <i className="fas fa-bars"></i>Conversaciones
+           <div className="icon"><MarkUnreadChatAlt/></div><b>CONVERSACIONES</b> 
           </Button>
           </center>
           <Drawer
