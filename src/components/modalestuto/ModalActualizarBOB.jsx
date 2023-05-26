@@ -4,8 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import {HelpOutline } from "@mui/icons-material"
 import ReactPlayer from 'react-player';
 
-
-export default function ModalActualizarBOB() {
+export default function ModalPublicar() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -17,10 +16,10 @@ export default function ModalActualizarBOB() {
 
   return (
     <>
-        <HelpOutline onClick={handleShow} className="icon"/>
-        <Modal show={show} onHide={handleClose} className='modal-wrapper'>
+        <HelpOutline onClick={handleShow} className="sidebarIcon"/>
+        <Modal show={show} onHide={handleClose}>
             <Modal.Header className='modalheader'>
-            <Modal.Title className='modaltitle'>¿Cómo Actualizar a BOB?</Modal.Title>
+            <Modal.Title className='modaltitle'>¿Cómo actualizar a BOB (ChatBot)</Modal.Title>
             </Modal.Header>
             <Modal.Body className='modalbody'>
             <div className="contenedor">
@@ -36,6 +35,7 @@ export default function ModalActualizarBOB() {
                     
             </Modal.Body>
             <Modal.Footer className='modalfooter'>
+            
             <button className='modalbuttonGrey' onClick={handleCok}>
                 ok
             </button>
@@ -44,4 +44,3 @@ export default function ModalActualizarBOB() {
     </>
   );
 }
-
