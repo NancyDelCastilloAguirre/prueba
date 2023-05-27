@@ -159,6 +159,7 @@
   }
   .loginBox{
     height: 700px;
+    padding-left:30px;
   }
   .loginRight, .loginLeft {
     border-radius: 0;
