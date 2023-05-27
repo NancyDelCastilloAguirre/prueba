@@ -52,7 +52,7 @@ function App() {
     <Router>
       <Routes>
         {/* Rutas publicas */}
-        <Routeexact path="/"  element={<Welcome />} />
+        <Route exact path="/"  element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword/" element={<ForgotPassword />} />
