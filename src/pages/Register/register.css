@@ -177,9 +177,15 @@
   .registerWrapper {
     flex-direction: column;
     height: auto;
-    width: 90%;
+    width: 100%;
   }
-  
+  .registerBox{
+      color: white;
+      font-size: 18px;
+      height: 100vh;
+      flex-direction: column;
+      justify-content:center;
+  }
   .registerRight {
     flex: 1;
     border-radius: 0;
