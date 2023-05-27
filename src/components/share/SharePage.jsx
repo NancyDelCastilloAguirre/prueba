@@ -73,7 +73,7 @@ export default function Share() {
   return (
     <>
       <AddBox onClick={handleShow} sx={{ color: 'white'}}/>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleCock}>
         <Modal.Header className="modalheader">
           <Modal.Title className="modaltitle">Nueva Publicación</Modal.Title>
         </Modal.Header>
