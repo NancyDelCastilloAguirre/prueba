@@ -2,6 +2,7 @@ import Navbar from "../../components/navbar/Navbar";
 import "./welcome.css";
 import app_1 from "../../images/app_1.png"
 import IcoBOB from "../../images/IcoBOB.png"
+import {Link} from "react-router-dom"
 
 export default function Welcome() {
   return (
@@ -23,7 +24,7 @@ export default function Welcome() {
                             Somos una plataforma que te ayuda a potenciar la
                             comunicaciónentre las instituciones y su comunidad.
                             </p>
-                            <button class="btn btn-primary mb-4">Inicia aquí</button>
+                            <Link to="/login"><button class="btn btn-primary mb-4">Inicia aquí</button></Link>
                         </div>
                         <div class="col-md-6">
                             <img src={app_1} alt="app" width="388px" className="img-float"  />
