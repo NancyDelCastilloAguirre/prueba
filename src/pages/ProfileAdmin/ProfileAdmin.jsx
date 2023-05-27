@@ -4,6 +4,8 @@ import SidebarAdmin from "../../components/sidebarAdmin/SidebarAdmin";
 import Feed from "../../components/feed/Feed";
 import RightbarAdmin from "../../components/rightbarAdmin/RightbarAdmin";
 import Autenticado from "../../components/Autenticado/Auntenticado";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";

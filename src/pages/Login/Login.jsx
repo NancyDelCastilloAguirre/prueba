@@ -8,11 +8,12 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 export default function Login() {
   const errRef = useRef();
-  const [showPassword, setShowPassword] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
   }
+
   const navigate = useNavigate ();
   const [isReadyForInstall, setIsReadyForInstall] = useState(false); 
   const [username, setUsername] = useState('');
@@ -154,8 +155,8 @@ export default function Login() {
               onKeyDown={handleKeyDown}
             />
             </div>
-            <div className="inputContainer">
             <p className="loginTexto">Contraseña</p>
+            <div className="inputContainer">
               <input 
                   type={showPassword ? "text" : "password"} 
                   id="Pass" 
@@ -166,10 +167,10 @@ export default function Login() {
                   onChange={(e)=>setPassword(e.target.value)}  
               />
               <button onClick={togglePasswordVisibility} className="togglePasswordButton">
-              {showPassword ? 
-                <RemoveRedEyeIcon alt="hide" /> :
-                <VisibilityOffIcon alt="show" /> 
-            }
+                {showPassword ? 
+                  <RemoveRedEyeIcon alt="hide" /> :
+                  <VisibilityOffIcon alt="show" /> 
+                }
               </button>
           </div>
             <Link to="/forgotpassword" style={{textDecoration:"none",color:"white"}}>

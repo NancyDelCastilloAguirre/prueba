@@ -3,6 +3,8 @@ import {Link, useNavigate  } from "react-router-dom"
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { URL } from "../../URL";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const EXPREG_EMAIL = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 const EXPREG_USERNAME = /^[a-zA-Z][a-zA-Z0-9_]{7,34}$/;
@@ -30,7 +32,17 @@ export default function Register() {
 
   const [errMsg, setErrMsg] = useState('');
 
-  
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+
+  const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+  }
+
+  const togglePasswordVisibility2 = () => {
+    setShowPassword2(!showPassword2);
+}
+
   useEffect(() => {
     setValidUser(EXPREG_USERNAME.test(user));
   }, [user])
@@ -167,85 +179,105 @@ export default function Register() {
           <div className="registerBox">
             <p className="registerBienvenida">Crear una cuenta</p>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <p className="registerTexto">Nombre de Usuario</p>   
-            <input 
-              type="text"
-              id="User"
-              onChange={(e) => setUser(e.target.value)}
-              onKeyPress={(event)=>validarCaracterUsername(event)}
-              onPaste={(e)=> eliminarC(e)}
-              autoComplete="off"
-              placeholder="Usuario" 
-              className="registerInput" 
-              required
-              aria-describedby="uidnote"
-              onFocus={() => setUserFocus(true)}
-              onBlur={() => setUserFocus(false)}
-            />
-            <p id="uidnote" className={userFocus && user && !validUser ? "instructions" : "offscreen"}>
-              Debe iniciar con una letra.<br/>
-              Debe tener mínimo 8 caracteres.<br/>
-              No debe tener acentos ni espacios.<br/>
-              Solo acepta guiones bajos como caracter especial.
-            </p>   
+            <p className="registerTexto">Nombre de Usuario</p>  
+            <div className="inputContainer">
+              <input 
+                type="text"
+                id="User"
+                onChange={(e) => setUser(e.target.value)}
+                onKeyPress={(event)=>validarCaracterUsername(event)}
+                onPaste={(e)=> eliminarC(e)}
+                autoComplete="off"
+                placeholder="Usuario" 
+                className="registerInput" 
+                required
+                aria-describedby="uidnote"
+                onFocus={() => setUserFocus(true)}
+                onBlur={() => setUserFocus(false)}
+              />
+              <p id="uidnote" className={userFocus && user && !validUser ? "instructions" : "offscreen"}>
+                Debe iniciar con una letra.<br/>
+                Debe tener mínimo 8 caracteres.<br/>
+                No debe tener acentos ni espacios.<br/>
+                Solo acepta guiones bajos como caracter especial.
+              </p>               
+            </div> 
             <p className="registerTexto">Email</p>  
-            <input 
-              type="email"
-              id="Email"
-              onChange={(e) => { setEmail(e.target.value)}}
-              onKeyPress={(event)=>validarCaracterEmail(event)}
-              onPaste={(e)=> eliminarC(e)}
-              autoComplete="off"  
-              placeholder="Email"
-              className="registerInput"
-              required
-              aria-describedby="emlnote"
-              onFocus={() => setEmailFocus(true)}
-              onBlur={() => setEmailFocus(false)}
-            />
-            <p id="emlnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
-              El correo electrónico debe ser válido.
-            </p>  
+            <div className="inputContainer">
+              <input 
+                type="email"
+                id="Email"
+                onChange={(e) => { setEmail(e.target.value)}}
+                onKeyPress={(event)=>validarCaracterEmail(event)}
+                onPaste={(e)=> eliminarC(e)}
+                autoComplete="off"  
+                placeholder="Email"
+                className="registerInput"
+                required
+                aria-describedby="emlnote"
+                onFocus={() => setEmailFocus(true)}
+                onBlur={() => setEmailFocus(false)}
+              />
+              <p id="emlnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
+                El correo electrónico debe ser válido.
+              </p>              
+            </div> 
             <p className="registerTexto">Contraseña</p>
-            <input 
-              type="password"
-              onChange={(e) => setPass1(e.target.value)}
-              onKeyPress={(event)=>validarCaracterPassword(event)}
-              onPaste={(e)=> eliminarC(e)}
-              id="Pass1"
-              autoComplete="off"
-              placeholder="Contraseña" 
-              className="registerInput" 
-              required
-              aria-describedby="pwdnote"
-              onFocus={() => setPass1Focus(true)}
-              onBlur={() => setPass1Focus(false)}
+            <div className="inputContainer">   
+              <input 
+                type={showPassword ? "text" : "password"} 
+                onChange={(e) => setPass1(e.target.value)}
+                onKeyPress={(event)=>validarCaracterPassword(event)}
+                onPaste={(e)=> eliminarC(e)}
+                id="Pass1"
+                autoComplete="off"
+                placeholder="Contraseña" 
+                className="registerInput" 
+                required
+                aria-describedby="pwdnote"
+                onFocus={() => setPass1Focus(true)}
+                onBlur={() => setPass1Focus(false)}
             />
+            <button onClick={togglePasswordVisibility} className="togglePasswordButton">
+              {showPassword ? 
+                <RemoveRedEyeIcon alt="hide" /> :
+                <VisibilityOffIcon alt="show" /> 
+            }
+            </button>  
+            </div>          
             <p id="pwdnote" className={pass1Focus && !validPass1 ? "instructions" : "offscreen"}>
               Debe ser mínimo de 8 caracteres. <br/>
               No debe tener acentos ni espacios.<br/>
               Debe contener una mayuscula, una minuscula, un número y un caracter especial. <br/>
               Acepta ! @ % & ? * _ - = + . , 
             </p> 
-            <p className="registerTexto">Confirmar Contraseña</p>  
-            <input 
-              type="password" 
-              id="Pass2" 
-              onChange={(e) => setPass2(e.target.value)}
-              onKeyPress={(event)=>validarCaracterPassword(event)}
-              onPaste={(e)=> eliminarC(e)}
-              autoComplete="off"
-              placeholder="Confirmar Contraseña" 
-              className="registerInput"
-              required
-              aria-describedby="pwd2note" 
-              onFocus={() => setPass2Focus(true)}
-              onBlur={() => setPass2Focus(false)}
-            />
-            <p id="pwd2note" className={pass2Focus && !validPass2 ? "instructions" : "offscreen"}>
-              Las contraseñas no coinciden  
-            </p> 
-            <p className="registerLogin"> </p>
+            <p className="registerTexto">Confirmar Contraseña</p> 
+            <div className="inputContainer">
+              <input 
+                type={showPassword2 ? "text" : "password"} 
+                id="Pass2" 
+                onChange={(e) => setPass2(e.target.value)}
+                onKeyPress={(event)=>validarCaracterPassword(event)}
+                onPaste={(e)=> eliminarC(e)}
+                autoComplete="off"
+                placeholder="Confirmar Contraseña" 
+                className="registerInput"
+                required
+                aria-describedby="pwd2note" 
+                onFocus={() => setPass2Focus(true)}
+                onBlur={() => setPass2Focus(false)}
+              />  
+              <button onClick={togglePasswordVisibility2} className="togglePasswordButton">
+                {showPassword2 ? 
+                  <RemoveRedEyeIcon alt="hide" /> :
+                  <VisibilityOffIcon alt="show" /> 
+              }
+              </button>              
+              <p id="pwd2note" className={pass2Focus && !validPass2 ? "instructions" : "offscreen"}>
+                Las contraseñas no coinciden  
+              </p>               
+            </div> 
+            <p className="registerLogin"></p>
             <button className="registerButton" onClick={handleRegister} >Registrarse</button>
             <Link to="/" className="loginRegister" style={{textDecoration:"none",color:"white"}}>
               Inicia sesión

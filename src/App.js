@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import Chat from "./pages/Chat/Chat";
 import Saved from "./pages/Saved/Saved";
 import Login from "./pages/Login/Login"
+import Welcome from "./pages/Welcome/Welcome";
 import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register"
 import BOBAdmin from "./pages/BOBAdmin/BOBAdmin";
@@ -52,6 +53,7 @@ function App() {
       <Routes>
         {/* Rutas publicas */}
         <Route exact path="/" element={<Login />} />
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword/" element={<ForgotPassword />} />
         <Route path="/restorepassword/" element={<RestorePassword />} />
