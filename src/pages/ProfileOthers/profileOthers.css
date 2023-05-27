@@ -65,6 +65,7 @@
       container-type: inline-size;
       flex-direction: column;
       height: 100vh;
+      overflow: scroll;
     }
     .profileRight {
         transform: scale(1);
