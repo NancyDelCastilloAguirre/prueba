@@ -70,7 +70,7 @@ export default function RestorePassword() {
           axios.post(`${URL}api/auth/register`, {email:email, password:pass1})
           .then((res)=>{
             console.log(res.data)
-            navigate("/");
+            navigate("/login");
           }).catch((err)=>{
             if(!err?.response){
               setErrMsg("El servidor no responde")

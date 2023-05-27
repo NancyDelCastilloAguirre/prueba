@@ -156,7 +156,7 @@ export default function Register() {
       axios.post(`${URL}api/auth/register`, {username:user, email:email, password:pass1})
       .then((res)=>{
         console.log(res.data)
-        navigate("/");
+        navigate("/login");
       }).catch((err)=>{
         if(!err?.response){
           setErrMsg("El servidor no responde")
@@ -279,7 +279,7 @@ export default function Register() {
             </div> 
             <p className="registerLogin"></p>
             <button className="registerButton" onClick={handleRegister} >Registrarse</button>
-            <Link to="/" className="loginRegister" style={{textDecoration:"none",color:"white"}}>
+            <Link to="/login" className="loginRegister" style={{textDecoration:"none",color:"white"}}>
               Inicia sesión
             </Link>
           </div>
