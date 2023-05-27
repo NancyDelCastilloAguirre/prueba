@@ -52,8 +52,8 @@ function App() {
     <Router>
       <Routes>
         {/* Rutas publicas */}
-        <Route exact path="/" element={<Login />} />
-        <Route path="/welcome" element={<Welcome />} />
+        <Route exact path="/" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword/" element={<ForgotPassword />} />
         <Route path="/restorepassword/" element={<RestorePassword />} />

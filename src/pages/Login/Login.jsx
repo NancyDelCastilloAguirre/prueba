@@ -79,7 +79,7 @@ export default function Login() {
           }
         }
       }else{
-        navigate("/")
+        navigate("/login")
       }
     };
     checkToken();
