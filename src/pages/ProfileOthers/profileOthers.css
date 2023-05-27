@@ -66,6 +66,7 @@
       flex-direction: column;
       height: 100vh;
       overflow: scroll;
+      background: #1e1e1e;
     }
     .profileRight {
         transform: scale(1);
