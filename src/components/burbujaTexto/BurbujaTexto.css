@@ -40,5 +40,21 @@
     bottom:-22px;
     left:30px;
   }
-  
+  @media (max-width: 400px) {
+  .burbuja {
+    padding: 8px;
+    margin: 5px;
+  }
+
+  .chatBubbleArrow {
+    border-width: 7px;
+    bottom: -14px;
+  }
+
+  .chatBubbleArrowBorder {
+    border-width: 7px;
+    bottom: -17px;
+  }
+}
+
   
