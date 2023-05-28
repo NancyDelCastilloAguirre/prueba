@@ -17,7 +17,7 @@ export default function Welcome() {
         <>
         <header class="foi-header landing-header">
         <Navbar /> 
-        <div class="container">
+        <div class="container" id="section1">
                     <div class="header-content">
                         <div class="row">
                             <div class="col-md-6">
@@ -42,7 +42,7 @@ export default function Welcome() {
                 </div>  
         </header>  
         <section class="py-5 mb-5">
-            <div class="container">
+            <div class="container" id="section2">
                 <h2>No sé que vamos a poner aquí</h2>
                 <p class="text-muted mb-5">Thank you for your very professional and prompt response. I wished I had found you before </p>
                 <div class="row">
@@ -83,7 +83,7 @@ export default function Welcome() {
             </div>
         </section>
             <section class="py-5 mb-5">
-            <div class="container">
+            <div class="container" id="section3">
                 <h4 class="section-title"></h4>
                 <div class="row">
                     <div class="col-lg-4 mb-4 mb-lg-0">
@@ -171,7 +171,7 @@ export default function Welcome() {
             </div>
         </section>
         <section class="py-5 mb-5">
-            <div class="container">
+            <div class="container" id="section4">
                 <h2>FAQ</h2>
                 <p class="section-subtitle">Frequently Asked Questions</p>
                 <div class="row">
