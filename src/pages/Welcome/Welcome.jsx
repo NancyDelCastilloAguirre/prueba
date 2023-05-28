@@ -27,9 +27,10 @@ export default function Welcome() {
                                     </div>
                                 </div>
                                 <p class="text-light">
-                                Tú Sistema Operativo de Novedades y Anuncios Politécnicos. 
+                                Tú Sistema Operativo de Novedades y Anuncios
+                                Politécnicos. 
                                 Somos una plataforma que te ayuda a potenciar la
-                                comunicaciónentre las instituciones y su comunidad.
+                                comunicació nentre las instituciones y su comunidad.
                                 </p>
                                 <button class="btn btn-primary mb-4" onClick={goLogin}>Inicia aquí</button>
                             </div>
