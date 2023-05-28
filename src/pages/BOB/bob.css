@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     background-color: #4B0928;
-    
+    flex-wrap: nowrap;
 }
 
 .bob{
@@ -10,6 +10,8 @@
     width: 100%;
     padding: 30px;
     background-color: #1E1E1E;
+    flex-direction: column;
+    align-items: stretch;
     
 }.chatMenuInput {
     width: 90%;
@@ -110,6 +112,8 @@
   }
   .img-float {
     animation: float 2s ease-in-out infinite;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   @media screen and (max-width: 768px) {
