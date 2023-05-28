@@ -142,9 +142,16 @@
     .chatSidebar {
       display: none;
     }
-    .chatBox {
-      height: 100vh;
-      font-size: 14px;
-      width: 100vw;
+    .chatBoxB {
+      font-size: 16px;
+      overflow: scroll;
+      display: flex;
+      flex: 1 1;
+      flex-direction: column;
+      height: 80%;
+      max-width: 1200px;
+      order: 3;
+      -webkit-transform: scale(1);
+      transform: scale(1);
     }
   }
