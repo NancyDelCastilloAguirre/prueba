@@ -180,9 +180,9 @@ runPrompt().then(r=>{
       <div className="bobContainer">      
         <Sidebar />
         <div className="bob">
-        <div className="chatBox" sx={{maxWidth: 100}}>
+        <div className="chatBoxB" sx={{maxWidth: 100}}>
             <BurbujaDeTexto texto={respuesta}/>
-                <div className="chatMenuInput">
+                <div className="">
                 <img className="img-float" src="/LOGO_BOB.png" alt="BOB" width="250px" />
                 <div className="chatBoxBottom2">
                 <textarea 
