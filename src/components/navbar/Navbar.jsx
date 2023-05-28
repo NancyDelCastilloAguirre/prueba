@@ -36,16 +36,16 @@ export default function Navbar() {
                     </a>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link">Inicio</a>
+                                <a href="#section1" class="nav-link">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">Nosotros</a>
+                                <a href="#section2" class="nav-link">Nosotros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">Caracteristicas</a>
+                                <a href="#section3" class="nav-link">Caracteristicas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">Ayuda</a>
+                                <a href="#section4" class="nav-link">Ayuda</a>
                             </li>
                         </ul>
                 </Drawer>
@@ -54,16 +54,16 @@ export default function Navbar() {
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link">Inicio</a>
+                        <a href="#section1" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Nosotros</a>
+                        <a href="#section2" class="nav-link">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Caracteristicas</a>
+                        <a href="#section3" class="nav-link">Caracteristicas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Ayuda</a>
+                        <a href="#section4" class="nav-link">Ayuda</a>
                     </li>
                 </ul>
             </div>
