@@ -24,6 +24,10 @@
   max-width: 100%;
   height: auto;
 }
+.img-g{
+  max-width: 100%;
+  height: auto;
+}
 
 .red-text{
   color: var(--red) !important;
@@ -3337,10 +3341,9 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
+  background-color: #000;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem; }
+ }
   .card > hr {
     margin-right: 0;
     margin-left: 0; }
@@ -3354,7 +3357,10 @@ input[type="button"].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem; }
+  padding: 1.25rem;
+
+
+}
 
 .card-title {
   margin-bottom: 0.75rem; }
@@ -8189,11 +8195,7 @@ button:focus {
   padding: 0; }
 
 .pricing-card {
-  border: 0;
-  border-top: 4px solid transparent;
-  border-radius: 6px;
-  box-shadow: 0 2px 13px 0 rgba(218, 215, 215, 0.5);
-  padding: 55px 35px 35px;
+  
   text-align: center; }
   .pricing-card .payment-period {
     margin-bottom: 28px; }

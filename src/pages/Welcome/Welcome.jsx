@@ -4,9 +4,83 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import app_1 from "../../images/app_1.png"
 import IcoBOB from "../../images/IcoBOB.png"
+import GSONA from "../../images/GSONA.png"
+import GSONA2 from "../../images/GSONA2.png"
+import GSONA3 from "../../images/GSONA3.png"
+import IBOB from "../../images/IconBOB.png"
+import SONA from "../../images/SONA.png"
+import emailjs from "@emailjs/browser"
+import template2 from "../../templates/templateW";
 
 
 export default function Welcome() {
+    const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [phone, setPhone] = useState('');
+  const [fvalido, setFvalido]=useState('')
+  const [message, setMessage] = useState('');
+  const [evalido, setEvalido]=useState('');
+  const [nvalido, setNvalido]=useState("");
+  const [isPhoneValid, setIsPhoneValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+
+
+  const enviarEmail=(templateParams)=>{
+    emailjs.send('service_qh9tq7f', 'template_owq4rfq', templateParams,"qm2j3dUCQPz5iPYT4")
+      .then((response) => {
+      },(error) => {
+        console.log('Email no enviado...', error);
+      });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name.trim() || !subject.trim() || !message.trim() || !isPhoneValid || !isEmailValid) {
+        setFvalido("Por favor, complete todos los campos correctamente");
+    } else {
+        setFvalido("");
+        console.log(name, email, subject, phone, message);
+        const emailTemplate = template2(name,email,subject,phone,message);
+        enviarEmail(emailTemplate);
+        console.log("Correo enviado con éxito");
+        
+      }
+    
+  }
+
+  const handlePhoneChange = (e) => {
+    const re = /^[0-9\b]+$/;
+    if (e.target.value === '' || re.test(e.target.value)) {
+      setPhone(e.target.value)
+      setIsPhoneValid(e.target.value.length == 10);
+    }
+  }
+  
+  const validatePhone = () => {
+    if(phone.length < 10 || phone.length > 10){
+      setNvalido("El número de teléfono debe tener 10 dígitos.")
+    }
+    else{
+        setNvalido("")
+    }
+  }
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const validateEmail = (e) => {
+    const re = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (!re.test(email)) {
+      setEvalido("Debes poner un e-mail válido")
+    }
+    else{
+        setEvalido("")
+        setIsEmailValid(re.test(e.target.value));
+
+    }
+  }
     const navigate = useNavigate();
 
     function goLogin(){
@@ -27,10 +101,9 @@ export default function Welcome() {
                                     </div>
                                 </div>
                                 <p class="text-light">
-                                Tú Sistema Operativo de Novedades y Anuncios
-                                Politécnicos. 
-                                Somos una plataforma que te ayuda a potenciar la
-                                comunicació nentre las instituciones y su comunidad.
+                                Tu Sistema Operativo de Novedades y Anuncios
+                                Politécnicos. Somos una plataforma que te ayuda a potenciar la
+                                comunicación entre las instituciones y su comunidad.
                                 </p>
                                 <button class="btn btn-primary mb-4" onClick={goLogin}>Inicia aquí</button>
                             </div>
@@ -43,40 +116,28 @@ export default function Welcome() {
         </header>  
         <section class="py-5 mb-5">
             <div class="container" id="section2">
-                <h2>No sé que vamos a poner aquí</h2>
-                <p class="text-muted mb-5">Thank you for your very professional and prompt response. I wished I had found you before </p>
+                <h2>Agrega a SONA en tu pantalla de inicio</h2>
+                <p class="text-muted mb-5">Pasos a seguir </p>
                 <div class="row">
                     <div class="col-lg-4 mb-4">
                         <div class="card pricing-card border-warning">
-                            <div class="card-body">
-                                <h3 class="mb-1">Starter</h3>
-                                <h3 class="mb-1 text-warning">Free</h3>
-                                <p class="payment-period">Per month</p>
-                                <p class="mb-4">Thank you for your very professional and prompt response.</p>
-                                <button class="btn btn-outline-warning btn-rounded">Get Started</button>
+                            <div class="card">
+                            <img src={GSONA} alt="app" width="388px" className="img-g"  />
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <div class="card pricing-card border-primary active">
-                            <div class="card-body">
-                                <h3>Popular</h3>
-                                <h3 class="text-primary">$23.00</h3>
-                                <p class="payment-period">Per month</p>
-                                <p class="mb-4">Thank you for your very professional and prompt response.</p>
-                                <button class="btn btn-primary btn-rounded">Get Started</button>
+                            <div class="card">
+                            <img src={GSONA2} alt="app" width="388px" className="img-g"  />
                             </div>
-                        </div>
+                            </div>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <div class="card pricing-card border-success">
-                            <div class="card-body">
-                                <h3>Enterprise</h3>
-                                <h3 class="text-success">$40.00</h3>
-                                <p class="payment-period">Per month</p>
-                                <p class="mb-4">Thank you for your very professional and prompt response.</p>
-                                <button class="btn btn-outline-success btn-rounded">Get Started</button>
-                            </div>
+                        
+                            <img src={GSONA3} alt="app" width="388px" className="img-g"  />
+                            
                         </div>
                     </div>
                 </div>
@@ -262,51 +323,54 @@ export default function Welcome() {
                 </section>
                 <section class="contact-content">
                     <div class="contact-widget media">
-                        <img src="assets/images/icon-4.png" alt="monitor" width="50px" />
+                        <img src={SONA} alt="monitor" width="70px" />
                         <div class="media-body">
-                            <h6 class="widget-title">Production Office</h6>
-                            <p class="widget-content">hello@youriste.com</p>
+                            <h6 class="widget-title">Oficina de SONA</h6>
+                            <p class="widget-content">sonaybob@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-widget media">
-                        <img src="assets/images/icon-5.png" alt="book" width="40px" />
+                    <img src={IBOB} alt="monitor" width="50px" />
                         <div class="media-body">
-                            <h6 class="widget-title">Administration Office</h6>
-                            <p class="widget-content">hello@youriste.com</p>
+                            <h6 class="widget-title">Oficina de administración de BOB</h6>
+                            <p class="widget-content">bobdatos@gmail.com</p>
                         </div>
                     </div>
                 </section>
                 <section class="contact-form-wrapper">
-                    <form action="index.html">
+                    <form onSubmit={handleSubmit}>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">Tu nombre <sup>*</sup></label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name *" />
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre *"onChange={e => setName(e.target.value)} />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email">Tu e-mail <sup>*</sup></label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="feeney.matteo@schmeler.com" />
+                                <input type="email" id="email" class="form-control" name="email" placeholder="usuario@gmail.com" value={email} onChange={handleEmailChange} onBlur={validateEmail} />
+                                <p>{evalido}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="subject">Sujeto <sup>*</sup></label>
-                                <input type="text" class="form-control" id="name" name="subject" placeholder="Development" />
+                                <label for="subject">Asunto <sup>*</sup></label>
+                                <input type="text" class="form-control" id="name" name="subject" placeholder="¿De qué va tu consulta?" onChange={e => setSubject(e.target.value)} />
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="phone">Tu número telefónico <sup>*</sup></label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="635-396-9570" />
+                                <label for="phone">Tu número telefónico <sup>*</sup></label>                 
+                                <input type="tel" id="phone" class="form-control" name="phone" placeholder="55-7662-9262" value={phone} onChange={handlePhoneChange} onBlur={validatePhone} pattern="[0-9]*" inputMode="numeric" />
+                                <p>{nvalido}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-12">
                                 <label for="message">¿Cómo podemos ayudarte? <sup>*</sup></label>
-                                <textarea name="message" id="message" class="form-control" rows="7" placeholder="Hi there, I would like to ..."></textarea>
+                                <textarea name="message" id="message" class="form-control" rows="7" placeholder="Buen día, Me gustaría..." onChange={e => setMessage(e.target.value)}></textarea>
+                                <p>{fvalido}</p>
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary mb-4">Submit</button>
-                            <p class="form-footer-text">We'll get back to you in 1-2 business days.</p>
+                            <button type="submit" class="btn btn-primary mb-4">Enviar</button>
+                            <p class="form-footer-text">Tenemos un rango de respuesta entre 24 y 48 hrs.</p>
                         </div>
                     </form>
                 </section>
