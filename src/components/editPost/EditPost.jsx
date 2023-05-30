@@ -4,22 +4,25 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import {Create, AttachFileOutlined } from "@mui/icons-material"
 import { red } from '@mui/material/colors';
+import { URL } from '../../URL';
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
+
 
 export default function EditPost(props) {
   const [show, setShow] = useState(false);
   const [asunto,setAsunto]=useState(props.postid.post.asunto);
   const [contenido ,setContenido]=useState(props.postid.post.desc)
-  const [url, setUrl] = useState(props.postid.post.link);
   const [file, setFile]=useState("")
   const [imgP, setImg]=useState(props.postid.post.img)
   const [postinfo, setPostinfo]=useState("")
   const [postCont, setPostcont]=useState("")
-  const [postLiga, setPostliga]=useState("")
   const token=window.localStorage.getItem("token");
+  
+  console.log(token);
   const decodeToken=jwt_decode(token)
   const userId=decodeToken.id;
+  console.log(props.postid.post);
 
   const handleClose = async() => {
     
@@ -27,7 +30,6 @@ export default function EditPost(props) {
       userId: userId,
       asunto: asunto,
       desc: contenido,
-      link: url,
       img: imgP
     };
 
@@ -48,7 +50,7 @@ export default function EditPost(props) {
       // console.log("OBJETO POST NUEVO "+newPost.img);
       console.log(data)
       try {
-      axios.post(`https://apisona30-production.up.railway.app/upload`,data, {
+      await axios.post(`${URL}upload`,data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -63,7 +65,7 @@ export default function EditPost(props) {
 
 
     try {
-      axios.put(`https://apisona30-production.up.railway.app/api/posts/${props.postid.post._id}`,Apost)
+      await axios.put(`${URL}api/posts/${props.postid.post._id}`,Apost)
       window.location.reload() 
     } catch (error) {
       console.log(error);
@@ -76,11 +78,9 @@ export default function EditPost(props) {
 
   const handleShow = async() => {
     const info=props.postid.post.asunto
-    setPostinfo(info)
-    const cont=props.postid.post.desc
-    setPostcont(cont)
-    const liga=props.postid.post.link
-    setPostliga(liga)
+      setPostinfo(info)
+      const cont=props.postid.post.desc
+      setPostcont(cont)
     
     setShow(true)};
    
@@ -112,16 +112,8 @@ export default function EditPost(props) {
                 as="textarea" rows={3} 
                 placeholder={postCont}
                 className='forminput'
+                
                 onChange={(e)=>{setContenido(e.target.value)}}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInputText">
-              <Form.Label>Link</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder={postLiga}
-                className='forminput'
-                onChange={(e)=>{setUrl(e.target.value)}}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInputFile">
