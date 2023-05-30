@@ -30,7 +30,9 @@
 }
 
 .red-text{
-  color: var(--red) !important;
+  background: linear-gradient(to bottom, #250514, #f70223);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .wrapper {
@@ -562,6 +564,7 @@ pre {
   .no-gutters > [class*="col-"] {
     padding-right: 0;
     padding-left: 0; }
+  
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
@@ -1864,7 +1867,7 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #C5011C;
+  background: linear-gradient(to right, #630410, #2F1327);
   border-color: #C5011C; }
   .btn-primary:hover {
     color: #ffffff;
@@ -3358,8 +3361,6 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
-
-
 }
 
 .card-title {
@@ -3382,7 +3383,8 @@ input[type="button"].btn-block {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125); 
+}
   .card-header:first-child {
     border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0; }
   .card-header + .list-group .list-group-item:first-child {
@@ -8419,7 +8421,7 @@ html {
       font-size: 45px;
       line-height: 1.22; }
   .foi-header.landing-header {
-    background-image: url("../../images/bg_1@2x.png"), url("../../images/Bg_2@2x.png");
+    background-image: url("../../images/5_5_1.png"), url("../../images/1_4.png");
     background-repeat: no-repeat;
     background-repeat: no-repeat;
     background-size: 167px, 65%;

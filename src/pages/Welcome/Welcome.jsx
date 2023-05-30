@@ -2,7 +2,7 @@ import Navbar from "../../components/navbar/Navbar";
 import "./welcome.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import app_1 from "../../images/app_1.png"
+import app_1 from "../../images/2_2_1.png"
 import IcoBOB from "../../images/IcoBOB.png"
 import GSONA from "../../images/GSONA.png"
 import GSONA2 from "../../images/GSONA2.png"
@@ -22,6 +22,7 @@ export default function Welcome() {
   const [message, setMessage] = useState('');
   const [evalido, setEvalido]=useState('');
   const [nvalido, setNvalido]=useState("");
+  const [enviado, setEnviado]=useState("")
   const [isPhoneValid, setIsPhoneValid] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
 
@@ -36,10 +37,11 @@ export default function Welcome() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name.trim() || !subject.trim() || !message.trim() || !isPhoneValid || !isEmailValid) {
+    if (!enviado.trim() || !name.trim() || !subject.trim() || !message.trim() || !isPhoneValid || !isEmailValid) {
         setFvalido("Por favor, complete todos los campos correctamente");
     } else {
         setFvalido("");
+        setEnviado("Correo enviado correctamente")
         console.log(name, email, subject, phone, message);
         const emailTemplate = template2(name,email,subject,phone,message);
         enviarEmail(emailTemplate);
@@ -120,25 +122,22 @@ export default function Welcome() {
                 <p class="text-muted mb-5">Pasos a seguir </p>
                 <div class="row">
                     <div class="col-lg-4 mb-4">
-                        <div class="card pricing-card border-warning">
+
                             <div class="card">
                             <img src={GSONA} alt="app" width="388px" className="img-g"  />
                             </div>
-                        </div>
+
                     </div>
                     <div class="col-lg-4 mb-4">
-                        <div class="card pricing-card border-primary active">
                             <div class="card">
                             <img src={GSONA2} alt="app" width="388px" className="img-g"  />
                             </div>
-                            </div>
                     </div>
                     <div class="col-lg-4 mb-4">
-                        <div class="card pricing-card border-success">
-                        
+                        <div class="card">
                             <img src={GSONA3} alt="app" width="388px" className="img-g"  />
-                            
                         </div>
+                     
                     </div>
                 </div>
             </div>
@@ -365,7 +364,7 @@ export default function Welcome() {
                             <div class="form-group col-12">
                                 <label for="message">¿Cómo podemos ayudarte? <sup>*</sup></label>
                                 <textarea name="message" id="message" class="form-control" rows="7" placeholder="Buen día, Me gustaría..." onChange={e => setMessage(e.target.value)}></textarea>
-                                <p>{fvalido}</p>
+                                <p>{fvalido}</p><p>{enviado}</p>
                             </div>
                         </div>
                         <div class="text-center">
