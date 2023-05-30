@@ -7,6 +7,8 @@ import { red } from '@mui/material/colors';
 import { URL } from '../../URL';
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
+
+
 export default function EditPost(props) {
   const [show, setShow] = useState(false);
   const [asunto,setAsunto]=useState(props.postid.post.asunto);
@@ -21,6 +23,7 @@ export default function EditPost(props) {
   const decodeToken=jwt_decode(token)
   const userId=decodeToken.id;
   console.log(props.postid.post);
+
   const handleClose = async() => {
     
     const Apost={
@@ -29,6 +32,7 @@ export default function EditPost(props) {
       desc: contenido,
       img: imgP
     };
+
     if (file) {
       console.log("FILEEEE");
       console.log(file);
@@ -46,16 +50,21 @@ export default function EditPost(props) {
       // console.log("OBJETO POST NUEVO "+newPost.img);
       console.log(data)
       try {
-      await axios.post(`${URL}upload`,data, {
       await axios.post(`https://apisona30-production-635f.up.railway.app/upload`,data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
-@@ -65,7 +65,7 @@ export default function EditPost(props) {
+      });
+        
+      
+        console.log("EL ARCHIVO SE SUBIO A LA CARPETA SIUUU ");
+      } catch (error) {
+        console.log("NO SE SUBIO A LA CARPETA "+error);
+      }
+    }
 
 
     try {
-      await axios.put(`${URL}api/posts/${props.postid.post._id}`,Apost)
       await axios.put(`https://apisona30-production-635f.up.railway.app/api/posts/${props.postid.post._id}`,Apost)
       window.location.reload() 
     } catch (error) {
@@ -65,6 +74,8 @@ export default function EditPost(props) {
   };
     const handleCok = async() => {
       setShow(false)};
+
+
   const handleShow = async() => {
     const info=props.postid.post.asunto
       setPostinfo(info)
@@ -73,6 +84,7 @@ export default function EditPost(props) {
     
     setShow(true)};
    
+
   return (
     <>
       <Create onClick={handleShow} sx={{ fontSize:30 }} htmlColor="#ffff"/>
