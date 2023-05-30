@@ -13,10 +13,12 @@ export default function EditPost(props) {
   const [show, setShow] = useState(false);
   const [asunto,setAsunto]=useState(props.postid.post.asunto);
   const [contenido ,setContenido]=useState(props.postid.post.desc)
+  const [url, setUrl] = useState(props.postid.post.link);
   const [file, setFile]=useState("")
   const [imgP, setImg]=useState(props.postid.post.img)
   const [postinfo, setPostinfo]=useState("")
   const [postCont, setPostcont]=useState("")
+  const [postLiga, setPostliga]=useState("")
   const token=window.localStorage.getItem("token");
   
   console.log(token);
@@ -30,6 +32,7 @@ export default function EditPost(props) {
       userId: userId,
       asunto: asunto,
       desc: contenido,
+      link: url,
       img: imgP
     };
 
@@ -81,6 +84,8 @@ export default function EditPost(props) {
       setPostinfo(info)
       const cont=props.postid.post.desc
       setPostcont(cont)
+    const liga=props.postid.post.link
+    setPostcont(liga)
     
     setShow(true)};
    
@@ -116,6 +121,14 @@ export default function EditPost(props) {
                 onChange={(e)=>{setContenido(e.target.value)}}
               />
             </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInputText">
+              <Form.Label>Link</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={postLiga}
+                className='forminput'
+                onChange={(e)=>{setUrl(e.target.value)}}
+              />
             <Form.Group className="mb-3" controlId="exampleForm.ControlInputFile">
             <AttachFileOutlined sx={{ color: red[500] }} />
               <Form.Label className='formlabelfile'>Adjuntar Archivo</Form.Label>
