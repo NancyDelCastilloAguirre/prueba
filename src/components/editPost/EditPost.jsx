@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import {Create, AttachFileOutlined } from "@mui/icons-material"
 import { red } from '@mui/material/colors';
+import { URL } from '../../URL';
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
 
@@ -17,10 +18,12 @@ export default function EditPost(props) {
   const [imgP, setImg]=useState(props.postid.post.img)
   const [postinfo, setPostinfo]=useState("")
   const [postCont, setPostcont]=useState("")
-  const [postLiga, setPostliga]=useState("")
   const token=window.localStorage.getItem("token");
+  
+  console.log(token);
   const decodeToken=jwt_decode(token)
   const userId=decodeToken.id;
+  console.log(props.postid.post);
 
   const handleClose = async() => {
     
@@ -49,7 +52,7 @@ export default function EditPost(props) {
       // console.log("OBJETO POST NUEVO "+newPost.img);
       console.log(data)
       try {
-      axios.post(`https://apisona30-production.up.railway.app/upload`,data, {
+      await axios.post(`${URL}upload`,data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -64,7 +67,7 @@ export default function EditPost(props) {
 
 
     try {
-      axios.put(`https://apisona30-production.up.railway.app/api/posts/${props.postid.post._id}`,Apost)
+      await axios.put(`${URL}api/posts/${props.postid.post._id}`,Apost)
       window.location.reload() 
     } catch (error) {
       console.log(error);
@@ -77,11 +80,9 @@ export default function EditPost(props) {
 
   const handleShow = async() => {
     const info=props.postid.post.asunto
-    setPostinfo(info)
-    const cont=props.postid.post.desc
-    setPostcont(cont)
-    const liga=props.postid.post.link
-    setPostliga(liga)
+      setPostinfo(info)
+      const cont=props.postid.post.desc
+      setPostcont(cont)
     
     setShow(true)};
    
@@ -91,7 +92,7 @@ export default function EditPost(props) {
       <Create onClick={handleShow} sx={{ fontSize:30 }} htmlColor="#ffff"/>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className='modalheader'>
-          <Modal.Title className='modaltitle'>Editar PublicaciÃ³n</Modal.Title>
+          <Modal.Title className='modaltitle'>Editar Publicación</Modal.Title>
         </Modal.Header>
         <Modal.Body className='modalbody'>
           <Form>
@@ -113,6 +114,7 @@ export default function EditPost(props) {
                 as="textarea" rows={3} 
                 placeholder={postCont}
                 className='forminput'
+                
                 onChange={(e)=>{setContenido(e.target.value)}}
               />
             </Form.Group>
@@ -124,7 +126,6 @@ export default function EditPost(props) {
                 className='forminput'
                 onChange={(e)=>{setUrl(e.target.value)}}
               />
-            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInputFile">
             <AttachFileOutlined sx={{ color: red[500] }} />
               <Form.Label className='formlabelfile'>Adjuntar Archivo</Form.Label>
@@ -149,5 +150,4 @@ export default function EditPost(props) {
     </>
   );
 }
-
 
