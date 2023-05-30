@@ -17,12 +17,10 @@ export default function EditPost(props) {
   const [imgP, setImg]=useState(props.postid.post.img)
   const [postinfo, setPostinfo]=useState("")
   const [postCont, setPostcont]=useState("")
+  const [postLiga, setPostliga]=useState("")
   const token=window.localStorage.getItem("token");
-  
-  console.log(token);
   const decodeToken=jwt_decode(token)
   const userId=decodeToken.id;
-  console.log(props.postid.post);
 
   const handleClose = async() => {
     
@@ -51,7 +49,7 @@ export default function EditPost(props) {
       // console.log("OBJETO POST NUEVO "+newPost.img);
       console.log(data)
       try {
-      await axios.post(`${URL}upload`,data, {
+      axios.post(`https://apisona30-production.up.railway.app/upload`,data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -66,7 +64,7 @@ export default function EditPost(props) {
 
 
     try {
-      await axios.put(`${URL}api/posts/${props.postid.post._id}`,Apost)
+      axios.put(`https://apisona30-production.up.railway.app/api/posts/${props.postid.post._id}`,Apost)
       window.location.reload() 
     } catch (error) {
       console.log(error);
@@ -79,13 +77,13 @@ export default function EditPost(props) {
 
   const handleShow = async() => {
     const info=props.postid.post.asunto
-      setPostinfo(info)
-      const cont=props.postid.post.desc
-      setPostcont(cont)
-      const liga=props.postid.post.link
-      setPostliga(liga)
+    setPostinfo(info)
+    const cont=props.postid.post.desc
+    setPostcont(cont)
+    const liga=props.postid.post.link
+    setPostliga(liga)
     
-     setShow(true)};
+    setShow(true)};
    
 
   return (
@@ -115,7 +113,6 @@ export default function EditPost(props) {
                 as="textarea" rows={3} 
                 placeholder={postCont}
                 className='forminput'
-                
                 onChange={(e)=>{setContenido(e.target.value)}}
               />
             </Form.Group>
@@ -127,6 +124,7 @@ export default function EditPost(props) {
                 className='forminput'
                 onChange={(e)=>{setUrl(e.target.value)}}
               />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInputFile">
             <AttachFileOutlined sx={{ color: red[500] }} />
               <Form.Label className='formlabelfile'>Adjuntar Archivo</Form.Label>
