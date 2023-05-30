@@ -7,7 +7,6 @@ import { red } from '@mui/material/colors';
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
 
-
 export default function EditPost(props) {
   const [show, setShow] = useState(false);
   const [asunto,setAsunto]=useState(props.postid.post.asunto);
