@@ -117,7 +117,6 @@ export default function EditPost(props) {
                 as="textarea" rows={3} 
                 placeholder={postCont}
                 className='forminput'
-                
                 onChange={(e)=>{setContenido(e.target.value)}}
               />
             </Form.Group>
@@ -129,6 +128,7 @@ export default function EditPost(props) {
                 className='forminput'
                 onChange={(e)=>{setUrl(e.target.value)}}
               />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInputFile">
             <AttachFileOutlined sx={{ color: red[500] }} />
               <Form.Label className='formlabelfile'>Adjuntar Archivo</Form.Label>
