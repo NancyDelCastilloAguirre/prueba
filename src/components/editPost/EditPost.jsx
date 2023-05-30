@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import {Create, AttachFileOutlined } from "@mui/icons-material"
 import { red } from '@mui/material/colors';
-import { IP } from '../../IP';
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
 
