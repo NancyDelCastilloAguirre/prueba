@@ -50,7 +50,7 @@ export default function EditPost(props) {
       // console.log("OBJETO POST NUEVO "+newPost.img);
       console.log(data)
       try {
-      await axios.post(`${URL}upload`,data, {
+      await axios.post(`https://apisona30-production-635f.up.railway.app/upload`,data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -65,7 +65,7 @@ export default function EditPost(props) {
 
 
     try {
-      await axios.put(`${URL}api/posts/${props.postid.post._id}`,Apost)
+      await axios.put(`https://apisona30-production-635f.up.railway.app/api/posts/${props.postid.post._id}`,Apost)
       window.location.reload() 
     } catch (error) {
       console.log(error);
