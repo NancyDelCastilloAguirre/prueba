@@ -83,8 +83,10 @@ export default function EditPost(props) {
       setPostinfo(info)
       const cont=props.postid.post.desc
       setPostcont(cont)
+      const liga=props.postid.post.link
+      setPostliga(liga)
     
-    setShow(true)};
+     setShow(true)};
    
 
   return (
