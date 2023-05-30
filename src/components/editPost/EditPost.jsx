@@ -118,9 +118,9 @@ export default function EditPost(props) {
               <Form.Label>Link</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={postLiga}
+                //placeholder={postLiga}
                 className='forminput'
-                onChange={(e)=>{setUrl(e.target.value)}}
+                //onChange={(e)=>{setUrl(e.target.value)}}
               />
             </Form.Group>
             </Form.Group>
