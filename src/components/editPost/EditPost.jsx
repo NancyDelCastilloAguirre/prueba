@@ -112,9 +112,17 @@ export default function EditPost(props) {
                 as="textarea" rows={3} 
                 placeholder={postCont}
                 className='forminput'
-                
                 onChange={(e)=>{setContenido(e.target.value)}}
               />
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInputText">
+              <Form.Label>Link</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={postLiga}
+                className='forminput'
+                onChange={(e)=>{setUrl(e.target.value)}}
+              />
+            </Form.Group>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInputFile">
             <AttachFileOutlined sx={{ color: red[500] }} />
