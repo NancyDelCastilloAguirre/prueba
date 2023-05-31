@@ -8,6 +8,7 @@
     text-align: justify;
     margin: 10px;
     color: rgb(255, 255, 255);
+    overflow: scroll;
 
   border: 2px solid #666666;
   font-size: 20px;
