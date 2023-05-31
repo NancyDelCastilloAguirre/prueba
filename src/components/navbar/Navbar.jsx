@@ -39,7 +39,7 @@ export default function Navbar() {
                                 <a href="#section1" class="nav-link">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#section2" class="nav-link">Nosotros</a>
+                                <a href="#section2" class="nav-link">Móvil</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#section3" class="nav-link">Caracteristicas</a>
@@ -57,7 +57,7 @@ export default function Navbar() {
                         <a href="#section1" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#section2" class="nav-link">Nosotros</a>
+                        <a href="#section2" class="nav-link">Móvil</a>
                     </li>
                     <li class="nav-item">
                         <a href="#section3" class="nav-link">Caracteristicas</a>

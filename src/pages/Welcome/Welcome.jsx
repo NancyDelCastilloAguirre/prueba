@@ -10,6 +10,7 @@ import GSONA3 from "../../images/GSONA3.png"
 import IBOB from "../../images/IconBOB.png"
 import SONA from "../../images/SONA.png"
 import emailjs from "@emailjs/browser"
+import Accordion from "../../components/Accordion/Accordion"
 import template2 from "../../templates/templateW";
 
 
@@ -137,7 +138,6 @@ export default function Welcome() {
                         <div class="card">
                             <img src={GSONA3} alt="app" width="388px" className="img-g"  />
                         </div>
-                     
                     </div>
                 </div>
             </div>
@@ -166,154 +166,18 @@ export default function Welcome() {
         </section>
 
         <section class="py-5 mb-5">
-            <div class="container">
-                <h2>Satisfied Users</h2>
-                <p class="text-muted mb-5">Thank you for your very professional and prompt response. I wished I had found you before </p>
-                <div class="row">
-                    <div class="col-md-4 foi-review mb-5 mb-md-0">
-                        <div class="foi-rating">
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                        </div>
-                        <h5 class="foi-review-heading">Este perrito está bien bonito, pero no es mío</h5>
-                        <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I had found you before I spent money on a competitors theme.</p>
-                        <div class="media foi-review-user">
-                            <img src="assets/images/avatar/avatar_11.jpg" alt="user" class="avatar" />
-                            <div class="media-body">
-                                <h6 class="mb-0">Amarachi Nkechi</h6>
-                                <p>UX Designer</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 foi-review mb-5 mb-md-0">
-                        <div class="foi-rating">
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                        </div>
-                        <h5 class="foi-review-heading">Great support available</h5>
-                        <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I had found you before I spent money on a competitors theme.</p>
-                        <div class="media foi-review-user">
-                            <img src="assets/images/avatar/avatar_12.jpg" alt="user" class="avatar" />
-                            <div class="media-body">
-                                <h6 class="mb-0">Margje Jutten</h6>
-                                <p>Developer</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 foi-review mb-5 mb-md-0">
-                        <div class="foi-rating">
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                            <span class="fas fa-star checked"></span>
-                        </div>
-                        <h5 class="foi-review-heading">Great support available</h5>
-                        <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I had found you before I spent money on a competitors theme.</p>
-                        <div class="media foi-review-user">
-                            <img src="assets/images/avatar/avatar_13.jpg" alt="user" class="avatar" />
-                            <div class="media-body">
-                                <h6 class="mb-0">Monica Böttger</h6>
-                                <p>UX Designer</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+        
         </section>
         <section class="py-5 mb-5">
-            <div class="container" id="section4">
-                <h2>FAQ</h2>
-                <p class="section-subtitle">Frequently Asked Questions</p>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card mb-3 landing-faq-card">
-                            <div class="card-header bg-white" id="faqOneTitle">
-                                <a href="#faqOneCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                    <h6 class="mb-0">What is Foi app?</h6> <i class="far fa-plus-square ml-auto"></i>
-                                </a>
-                            </div>
-                            <div id="faqOneCollapse" class="collapse" aria-labelledby="faqOneTitle">
-                                <div class="card-body">
-                                    <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 landing-faq-card">
-                            <div class="card-header bg-white" id="faqTwoTitle">
-                                <a href="#faqTwoCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                    <h6 class="mb-0">Why should I use Foi app?</h6> <i class="far fa-plus-square ml-auto"></i>
-                                </a>
-                            </div>
-                            <div id="faqTwoCollapse" class="collapse" aria-labelledby="faqTwoTitle">
-                                <div class="card-body">
-                                    <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 landing-faq-card">
-                            <div class="card-header bg-white" id="faqThreeTitle">
-                                <a href="#faqThreeCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                    <h6 class="mb-0">How can I use Foi app?</h6> <i class="far fa-plus-square ml-auto"></i>
-                                </a>
-                            </div>
-                            <div id="faqThreeCollapse" class="collapse" aria-labelledby="faqThreeTitle">
-                                <div class="card-body">
-                                    <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card mb-3 landing-faq-card">
-                            <div class="card-header bg-white" id="faqFourTitle">
-                                <a href="#faqFourCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                    <h6 class="mb-0">Who will see my updates?</h6> <i class="far fa-plus-square ml-auto"></i>
-                                </a>
-                            </div>
-                            <div id="faqFourCollapse" class="collapse" aria-labelledby="faqFourTitle">
-                                <div class="card-body">
-                                    <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 landing-faq-card">
-                            <div class="card-header bg-white" id="faqFiveTitle">
-                                <a href="#faqFiveCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                    <h6 class="mb-0">Can people see my connections?</h6> <i class="far fa-plus-square ml-auto"></i>
-                                </a>
-                            </div>
-                            <div id="faqFiveCollapse" class="collapse" aria-labelledby="faqFiveTitle">
-                                <div class="card-body">
-                                    <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 landing-faq-card">
-                            <div class="card-header bg-white" id="faqSixTitle">
-                                <a href="#faqSixCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                    <h6 class="mb-0">Being a user, what all rights I have?</h6> <i class="far fa-plus-square ml-auto"></i>
-                                </a>
-                            </div>
-                            <div id="faqSixCollapse" class="collapse" aria-labelledby="faqSixTitle">
-                                <div class="card-body">
-                                    <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> 
+    <div class="container" id="section4">
+        <h2>FAQ</h2>
+        <p class="section-subtitle">Preguntas más frecuentes</p>
+        <div class="row">
+                <Accordion />
+        </div>
+    </div>
+</section> 
+
         <main>
             <div class="container">
                 <section class="page-header">

@@ -8023,6 +8023,8 @@ a.text-danger:hover, a.text-danger:focus {
 .text-light {
   font-size: 22px;
   text-align: justify;
+  overflow: auto; /* Añadir para manejar el desbordamiento de contenido */
+    word-break: break-word; /* Añadir para manejar palabras muy largas */
   color: #f8f9fa !important; }
 
   @media screen and (max-width: 700px) {
