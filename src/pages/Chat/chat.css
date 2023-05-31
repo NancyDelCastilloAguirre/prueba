@@ -70,6 +70,10 @@
 .chatMenuInput:focus{
     outline: none;
 }
+
+.chatBoxTop{
+    overflow: scroll;
+}
 .mobileVisible {
   display: none;
 }
