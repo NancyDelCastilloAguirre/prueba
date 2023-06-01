@@ -8,6 +8,7 @@
     text-align: justify;
     margin: 10px;
     color: rgb(255, 255, 255);
+    overflow: scroll;
 
   border: 2px solid #666666;
   font-size: 20px;
@@ -20,6 +21,12 @@
   -webkit-box-shadow: 0px 0px 5px #000;
   box-shadow: 0px 0px 5px #000;
   }
+.burbuja::-webkit-scrollbar{
+  display: none;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
   .chatBubbleArrow{
     border-color: grey transparent transparent transparent;
     border-style: solid;
@@ -44,6 +51,8 @@
   .burbuja {
     padding: 8px;
     margin: 5px;
+    font-size: 16px;
+    overflow: scroll;
   }
 
   .chatBubbleArrow {

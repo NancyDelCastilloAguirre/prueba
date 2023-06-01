@@ -5,6 +5,7 @@ import { Send } from "@mui/icons-material";
 import { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import Autenticado from "../../components/Autenticado/Auntenticado";
+
 const ChatContent = ({
   messages,
   userId,
@@ -16,6 +17,7 @@ const ChatContent = ({
   setMessages,
 }) => {
   const socket = useRef(null);
+  const chatBoxTopRef = useRef(null);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -27,9 +29,12 @@ const ChatContent = ({
         conversationId: currentChat._id,
       };
 
-      socket.current.emit("message", { roomId: currentChat._id, message }); // Modifica esta línea
-  setNewMessage("");
-  await handleSubmit(message)
+      socket.current.emit("message", { roomId: currentChat._id, message });
+      setNewMessage("");
+      await handleSubmit(message);
+
+      // Hacer scroll al final del contenedor de mensajes
+      chatBoxTopRef.current.scrollTop = chatBoxTopRef.current.scrollHeight;
     }
   };
 
@@ -37,7 +42,7 @@ const ChatContent = ({
     if (!socket.current) {
       socket.current = io(`https://socketsapi-production-3e72.up.railway.app`);
     }
-  
+
     if (currentChat) {
       socket.current.emit("join", { roomId: currentChat._id, userId });
     }
@@ -45,7 +50,7 @@ const ChatContent = ({
     socket.current.on("message", (newMsg) => {
       handleNewMessage(newMsg);
     });
-    
+
     return () => {
       if (socket.current) {
         if (currentChat) {
@@ -56,33 +61,32 @@ const ChatContent = ({
       }
     };
   }, [currentChat]);
-  
 
   return (
     <>
-    <Autenticado> 
-      <div className="chatBoxTop">
-        {messages.map((m) => (
-          <Message key={m._id} message={m} own={m.sender === userId} convo={currentChat}/>
-        ))}
-      </div>
-      <div className="chatBoxBottom">
-        <textarea
-          className="chatMessageInput"
-          placeholder="Escribe tu mensaje"
-          onChange={(e) => setNewMessage(e.target.value)}
-          value={newMessage}
-        ></textarea>
-        <button
-          className="chatSubmit"
-          onClick={(e) => {
-            sendMessage(e, handleSubmit);
-          }}
-        >
-          <Send sx={{ color: "white" }} />
-        </button>
-      </div>
-    </Autenticado>
+      <Autenticado>
+        <div className="chatBoxTop" ref={chatBoxTopRef}>
+          {messages.map((m) => (
+            <Message key={m._id} message={m} own={m.sender === userId} convo={currentChat} />
+          ))}
+        </div>
+        <div className="chatBoxBottom">
+          <textarea
+            className="chatMessageInput"
+            placeholder="Escribe tu mensaje"
+            onChange={(e) => setNewMessage(e.target.value)}
+            value={newMessage}
+          ></textarea>
+          <button
+            className="chatSubmit"
+            onClick={(e) => {
+              sendMessage(e, handleSubmit);
+            }}
+          >
+            <Send sx={{ color: "white" }} />
+          </button>
+        </div>
+      </Autenticado>
     </>
   );
 };

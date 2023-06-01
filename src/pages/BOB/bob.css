@@ -43,6 +43,10 @@
     margin-top: 5px;
     display: flex;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 28px;
+    width: 70%;
     
 }
 .MensajesUsuario{
@@ -147,9 +151,10 @@
       bottom: 0;
       margin: 0 auto;
       width: 100vw;
-      width: 99%;
+      width: 85%;
       padding: 3px;
-      height: 30%;
+      margin-bottom: 15px;
+      
     }
     .chat{
       flex-direction: column;
@@ -166,7 +171,7 @@
       height: 80%;
       max-width: 1200px;
       order: 3;
-      -webkit-transform: scale(1);
-      transform: scale(1);
+      
+      
     }
   }
