@@ -1,7 +1,7 @@
 import "./profile.css";
 import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import Feed from "../../components/feed/Feed";
+import FeedProfile from "../../components/feedProfile/FeedProfile";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Autenticado from "../../components/Autenticado/Auntenticado";
 import EditPP from "../../components/editPP/EditPP";
@@ -71,7 +71,7 @@ export default function Profile() {
             </div>
           </div>
           <div className="profileRightBottom">
-            <div className="profileFeed"><Feed /></div>
+            <div className="profileFeed"><FeedProfile /></div>
             <div className="profileRightbar"><Rightbar profile/>
             </div>
           </div>
