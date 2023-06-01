@@ -98,17 +98,18 @@
 
 @media screen and (max-width: 768px) {
   .chat {
-    transform: scale(1);
     flex-direction: column;
     max-width: 100%;
     display: flex;
     container-type: inline-size;
   }
+
   .icon {
     padding-top: 9.4px;
     margin: 0;
     padding: 0;
   }
+
   .chatBox {
     transform: scale(1);
     flex-direction: column;
@@ -120,9 +121,11 @@
     order: 3;
     flex: 1;
   }
+
   .chatBoxTop {
     overflow: auto;
     max-height: 100%; /* Ajusta el valor según tus necesidades */
+    height: calc(100vh - 250px); /* Ajusta el valor según tus necesidades */
   }
 
   .chatSidebar {
@@ -135,8 +138,7 @@
     margin-bottom: 40px;
     border-color: #302e2e;
     display: block;
-    height: 100vh;
-    width: 100vw;;
+    width: 100vw;
   }
 
   .message.own {
@@ -160,6 +162,7 @@
   .chatSidebarWrapper {
     background-color: #1e1e1e;
   }
+
   .chatBoxBottom {
     margin-top: 5px;
     width: 90%;
@@ -169,11 +172,13 @@
     background-color: #5a5a5a;
     z-index: 1;
   }
+
   .noConversationText {
     margin: 2px;
     font-size: 16px !important;
     margin-top: 30%;
   }
+
   .chatMenuInput {
     margin: 3px;
     position: relative;
@@ -181,6 +186,7 @@
     z-index: 2;
     background-color: #302e2e;
   }
+
   .mobileVisible {
     display: block;
   }
@@ -188,12 +194,14 @@
   .mobileHidden {
     display: none;
   }
+
   .butt {
     background-color: #4b0928;
     color: #fff;
     width: 320px;
     height: 40px;
   }
+
   .draw {
     background-color: #302e2e !important;
   }
