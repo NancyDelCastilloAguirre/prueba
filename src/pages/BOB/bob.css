@@ -40,6 +40,10 @@
     margin-top: 5px;
     display: flex;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 28px;
+    width: 70%;
     
 }
 .MensajesUsuario{
@@ -146,6 +150,7 @@
       width: 100vw;
       width: 85%;
       padding: 3px;
+      margin-bottom: 15px;
       
     }
     .chat{
