@@ -127,7 +127,7 @@ export default function Chat() {
         <div className="chatMenu">
           <div className="chatMenuWrapper">
             <div className="mobileHidden">
-            <input placeholder="Buscar un chat con..." className="chatMenuInput" />
+            <input placeholder="Tener un chat con..." className="chatMenuInput" />
             {conversations.map((c) => (
               <div key={c._id} onClick={() => setCurrentChat(c)}>
                 <Conversation conversation={c} currentUser={userId} />
@@ -149,7 +149,7 @@ export default function Chat() {
             onClose={onClose}
             visible={visible}
           >
-            <input placeholder="Buscar un chat con..." className="chatMenuInput" />
+            <input placeholder="Tener un chat con..." className="chatMenuInput" />
             {conversations.map((c) => (
               <div key={c._id} onClick={() => setCurrentChat(c)}>
                 <Conversation conversation={c} currentUser={userId} />
