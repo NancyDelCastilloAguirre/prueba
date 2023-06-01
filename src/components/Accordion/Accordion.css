@@ -23,3 +23,18 @@
     overflow: auto; 
     word-break: break-word; 
 }
+@media screen {
+    .accordion-wrapper {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        width: 300px;
+    }
+    .accordion-content {
+        padding: 10px;
+        background-color: #3d3b3b;
+        text-align: justify;
+        overflow: auto; 
+        word-break: break-word; 
+    }
+}

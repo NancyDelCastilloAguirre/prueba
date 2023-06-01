@@ -25,6 +25,9 @@
     display: flex;    
     background-color: #1E1E1E ;
 }
+.izquierda{
+  align-items: last baseline;
+}
 
 .chatSidebar {
     flex: 1;

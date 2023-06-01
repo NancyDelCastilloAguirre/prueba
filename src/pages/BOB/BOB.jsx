@@ -6,6 +6,8 @@ import MessageBob from "../../components/message/MessageBob";
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { URL } from "../../URL";
+import BOBI from "./LOGO_BOB.png"
+import BOBL from "./BOBLeyendo.png"
 import Autenticado from "../../components/Autenticado/Auntenticado";
 import BurbujaDeTexto from "../../components/burbujaTexto/BurbujaTexto";
 import jwt_decode from "jwt-decode"
@@ -23,6 +25,7 @@ export default function BOB() {
   const [selectedFile, setSelectedFile]=useState([])
   const [infoPDF,setInfoPDF]=useState("")
   const [files, setFiles]=useState(null)
+  const [img, setImg]=useState(BOBI)
   const [username, setUsername]=useState("")
   const [keywordsToPdf, setKeywordsToPdf] = useState([]);
   const [respuesta, setRespuesta]=useState("Hola! soy BOB, ¿En qué puedo ayudarte?")
@@ -99,6 +102,7 @@ export default function BOB() {
         console.error('Error incrementing request count:', error);
       }
     }
+
     async function selectPdfFiles(userInput) {
       console.log(userInput);
     
@@ -130,6 +134,7 @@ export default function BOB() {
 };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setImg(BOBL)
   const filesP = await selectPdfFiles(mensaje);
   console.log(filesP);
   const files = await Promise.all(filesP.map(fetchPdfAsFile));
@@ -151,6 +156,7 @@ export default function BOB() {
   console.log(completion.data.choices[0].message);
   console.log(completion.data.usage); 
   setRespuesta(completion.data.choices[0].message.content)
+  setImg(BOBI)
   
   return r;
 
@@ -183,7 +189,7 @@ runPrompt().then(r=>{
         <div className="chatBoxB" sx={{maxWidth: 100}}>
             <BurbujaDeTexto texto={respuesta}/>
                 <div className="">
-                <img className="img-float" src="/LOGO_BOB.png" alt="BOB" width="250px" />
+                <img className="img-float" src={img} alt="BOB" width="250px" />
                 <div className="chatBoxBottom2">
                 <textarea 
                     className="chatMessageInput" 
@@ -191,7 +197,9 @@ runPrompt().then(r=>{
                     variant="outlined"
                     size="small"
                     onKeyDown={handleKeyDown}
-                    onChange={(e) => setMensaje(e.target.value)}
+                    onChange={(e) => {
+                      setMensaje(e.target.value)
+                    }}
                     value={mensaje}
                   >
                   </textarea>
