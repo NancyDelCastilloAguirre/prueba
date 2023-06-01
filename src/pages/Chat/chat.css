@@ -81,11 +81,11 @@
 
 .chatBoxTop::-webkit-scrollbar {
   width: 0.5em;
-  background-color: transparent;
+  background-color: #c1c1c1;
 }
 
 .chatBoxTop::-webkit-scrollbar-thumb {
-  background-color: transparent;
+  background-color: #c1c1c1;
 }
 
 .mobileVisible {
