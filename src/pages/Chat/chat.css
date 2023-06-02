@@ -78,7 +78,9 @@
 
 .chatBoxTop {
   overflow: auto;
-  max-height: 500px; /* Ajusta el valor según tus necesidades */
+  /*max-height: 700px;  Ajusta el valor según tus necesidades */
+  height: 100vh;
+  margin-bottom: 40px;
 }
 
 .chatBoxTop::-webkit-scrollbar {
