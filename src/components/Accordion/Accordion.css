@@ -23,7 +23,7 @@
     overflow: auto; 
     word-break: break-word; 
 }
-@media screen {
+@media screen and (max-width: 768px){
     .accordion-wrapper {
         border: 1px solid #ccc;
         border-radius: 5px;

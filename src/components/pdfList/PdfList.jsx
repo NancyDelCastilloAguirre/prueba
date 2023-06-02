@@ -13,11 +13,22 @@ const PdfList = ({ pdfFiles }) => {
           fileName:file
         }
       })
-      window.location.reload()
       console.log(res);
       } catch (error) {
         console.log(error);
       }
+
+      try{
+        const res=await axios.delete(`${URL}api/pdfCount/delete-file`,{
+          data:{
+            fileName:file
+          }
+        })
+        console.log(res);
+      }catch(err){
+        console.log(err);
+      }
+      window.location.reload()
         };
 console.log(pdfFiles);
   return (

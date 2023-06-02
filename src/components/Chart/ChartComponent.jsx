@@ -80,7 +80,7 @@ export default function ChartComponent(props)  {
               display: true,
               text: 'Número de consultas por archivo',
               font: {
-                size: 20 // cambiar el tamaño del encabezado
+                size: 20 
               }
             }
           }
