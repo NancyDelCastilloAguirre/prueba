@@ -16,7 +16,7 @@ import jwt_decode from "jwt-decode"
 const { Configuration, OpenAIApi }=require("openai");
 
 const config=new Configuration({
-    apiKey: process.env.REACT_APP_PUBLIC_KEY
+    apiKey: "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"
 });
 const openai=new OpenAIApi(config);
 
@@ -141,9 +141,9 @@ export default function BOB() {
   setSelectedFile(files);
     //IA
   const runPrompt=async(r)=>{
-  const promptI='Soy BOB, un ChatBot creado por los estudiantes de programación. B.O.B significa "Bot Operativo de Batiz" y estoy aqui sólo para informar a las personas en los trámites escolares.'
+  const promptI='Soy BOB, un ChatBot creado por los estudiantes de programación de la escuela del Centro de Estudios Científicos y Tecnológicos "Juan de Dios Bátiz" (CECyT 9). \nB.O.B significa "Bot Operativo de Batiz" y estoy aqui sólo para informar a las personas en los trámites escolares del CECyT 9, perteneciente al IPN (Instituto Politécnico Nacional).'
   const promptPDF= '\nTus respuestas puede venir de la Información extraída de los archivos PDF: ' + infoPDF
-  const prompt= promptI + promptPDF + "\n Por favor, responde de manera apropiada, coherente y resumida a la pregunta del usuario: " + ` \nUsuario llamado ${username}:` + mensaje
+  const prompt= promptI + promptPDF + "\n Por favor, responde de manera apropiada, coherente y resumida a la pregunta del usuario: " + ` \nUsuario llamado ${username}:`
   
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",

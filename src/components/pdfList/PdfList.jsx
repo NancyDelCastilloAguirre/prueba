@@ -5,8 +5,8 @@ import axios from 'axios';
 import { URL } from '../../URL';
 import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
 const PdfList = ({ pdfFiles }) => {
-
-    const onDelete = async(file) => {
+  const onDelete = async(file) => {
+      console.log(file);
       try {
         const res= await axios.delete(`${URL}delete-file`, {
         data:{
@@ -21,7 +21,7 @@ const PdfList = ({ pdfFiles }) => {
       try{
         const res=await axios.delete(`${URL}api/pdfCount/delete-file`,{
           data:{
-            fileName:file
+            fileName:"https://apisona30-production-635f.up.railway.app/pdf/" +file
           }
         })
         console.log(res);
