@@ -54,6 +54,8 @@
   padding: 10px;
   height: 100%;
   border-left: 1px solid gray;
+  overflow: auto;
+    height: 90vh;
 }
 
 .chatSidebarWrapper {
@@ -76,7 +78,7 @@
 
 .chatBoxTop {
   overflow: auto;
-  max-height: 600px; /* Ajusta el valor según tus necesidades */
+  max-height: 500px; /* Ajusta el valor según tus necesidades */
 }
 
 .chatBoxTop::-webkit-scrollbar {
@@ -85,7 +87,23 @@
 }
 
 .chatBoxTop::-webkit-scrollbar-thumb {
-  background-color: #white;
+  background-color: transparent;
+}
+.chatBoxWrapper::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: #c1c1c1;
+}
+
+.chatBoxWrapper::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.chat::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: #c1c1c1;
+}
+
+.chat::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 .mobileVisible {
