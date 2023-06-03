@@ -86,6 +86,8 @@
     font-weight: normal;
 }
 
+.forminput::placeholder { color: #a5a4a4 !important; }
+
 .forminputfile{
     display: none;
     padding: 0;
