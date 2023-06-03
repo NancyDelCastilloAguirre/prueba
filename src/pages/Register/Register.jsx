@@ -8,7 +8,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const EXPREG_EMAIL = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 const EXPREG_USERNAME = /^[a-zA-Z][a-zA-Z0-9_]{7,34}$/;
-const EXPREG_PASSWORD = /(?=(.*[0-9]))(?=.*[#$%&.])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,35}$/;  
+const EXPREG_PASSWORD = /(?=(.*[0-9]))(?=.*[!@%_\-+=?*&.])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,35}$/;  
 
 export default function Register() {
   const navigate = useNavigate ();
