@@ -1,6 +1,6 @@
 import "./sidebar.css"
 import IconoBOB from "./IconoBOB.png"
-import { Home,Forum,Person,NotificationsActive,BookmarkBorderOutlined,AccountCircle } from "@mui/icons-material"
+import { Home,Forum,Person,LocalDiningOutlined,BookmarkBorderOutlined,AccountCircle } from "@mui/icons-material"
 import {Link} from "react-router-dom"
 import Logout from "../logout/Logout"
 import ModalHablarAdmi from "../modalestuto/ModalHablarAdmi"
@@ -49,12 +49,13 @@ export default function Sidebar() {
                 </Link>
                 <div className="modales"><ModalGuardar/></div>
             </li>
-            {/*<li className="sidebarListItem">
-                <AccountCircle className="sidebarIcon" />
-                <Link to="/profile/" style={{textDecoration:"none",color:"white"}}>
-                  <span className="sidebarListItemText">Cuenta</span>
+            <li className="sidebarListItem">
+                
+                <Link to="/cafeteria" style={{textDecoration:"none",color:"white"}}>
+                  <LocalDiningOutlined className="sidebarIcon" />
+                  <span className="sidebarListItemText">Cafetería</span>
                 </Link>
-            </li>*/}
+            </li>
         </ul>
         
       </div>

@@ -8,6 +8,7 @@ import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register"
 import BOBAdmin from "./pages/BOBAdmin/BOBAdmin";
 import Followed from "./pages/Followed/Followed";
+import Cafeteria from "./pages/Cafeteria/Cafeteria" 
 import HomeAdmin from "./pages/HomeAdmin/HomeAdmin";
 import ProfileAdmin from "./pages/ProfileAdmin/ProfileAdmin";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
@@ -17,6 +18,7 @@ import ProfileOthers from "./pages/ProfileOthers/ProfileOthers"
 import NotFound from "./pages/NotFound/NotFound"
 import SharePage from "./components/share/SharePage";
 import Unauthorized from "./pages/Unauthorized/Unauthorized"
+import CafeteriaAdmin from "./pages/CafeteriaAdmin/CafeteriaAdmin";
 import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode"
 import {
@@ -68,12 +70,14 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/saved/" element={<Saved />} />
         <Route path="/followed/" element={<Followed />} />
+        <Route path="/cafeteria/" element={<Cafeteria />} />
 
         {/* Rutas solo administrador */}
         <Route path="/bobadmin/" element={<BOBAdmin />} />
         <Route path="/homeadmin/" element={<HomeAdmin />} />
         <Route path="/estadisticas" element={<Estadisticas />} />
         <Route path="/profileadmin/" element={<ProfileAdmin />} />
+        <Route path="/cafeteriaadmin/" element={<CafeteriaAdmin />} />
         <Route path="/sharepage/" element={<SharePage />} />
 
         {/* Ruta no autorización */}

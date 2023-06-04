@@ -1,4 +1,4 @@
-import './deletePost.css'
+import './deleteFood.css'
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -9,21 +9,18 @@ import axios from 'axios';
 import jwt_decode from "jwt-decode"
 
 
-export default function EditPost(postId) {
+export default function DeleteFood(food) {
   const [show, setShow] = useState(false);
   const token=window.localStorage.getItem("token");
   console.log(token);
   const decodeToken=jwt_decode(token)
   const userId=decodeToken.id;
   //REALMENTE ES EL POST ID
-console.log(postId.userId);
+console.log(food.userId._id);
 
   const handleClose = async() => {
-    if(!userId===postId.userId){
-      console.log("NO ES EL MISMO USUARIO");
-    }
     try {
-      const res= await axios.delete(`${URL}api/posts/${postId.userId}`, {
+      const res= await axios.delete(`${URL}api/food/${food.userId._id}`, {
         data:{
           userId:userId
         }
@@ -45,11 +42,11 @@ console.log(postId.userId);
       <Delete onClick={handleShow} sx={{ fontSize:30 }} htmlColor="#ffff"/>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className='modalheader'>
-          <Modal.Title className='modaltitle'>Eliminar Publicación</Modal.Title>
+          <Modal.Title className='modaltitle'>Eliminar Comida</Modal.Title>
         </Modal.Header>
         <Modal.Body className='modalbody'>
             <p>Cuidado, esta acción es permanente!!!</p>
-            <p>¿Seguro de que quieres eliminar la publicación?</p>
+            <p>¿Seguro de que quieres eliminar la comida?</p>
         </Modal.Body>
         <Modal.Footer className='modalfooter'>
           <button className='modalbuttonGrey' onClick={handleCok}>

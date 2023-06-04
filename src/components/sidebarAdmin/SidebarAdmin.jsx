@@ -1,6 +1,7 @@
 import "./sidebarAdmin.css"
-import { Home,Forum,AccountCircle, Analytics, PictureAsPdfOutlined } from "@mui/icons-material"
+import { Home,Forum,AccountCircle, Analytics, PictureAsPdfOutlined,LocalDiningOutlined } from "@mui/icons-material"
 import Share from "../share/Share"
+import ShareFood from "../shareFood/ShareFood"
 import Logout from "../logout/Logout"
 import {Link} from "react-router-dom"
 import ModalActualizarBOB from "../modalestuto/ModalActualizarBOB"
@@ -40,12 +41,13 @@ export default function SidebarAdmin() {
                   <span className="sidebarListItemText">Estadisticas</span>
                 </Link>
             </li>
-            {/*<li className="sidebarListItem">
-                <AccountCircle className="sidebarIcon" />
-                <Link  to="/profileadmin/" style={{textDecoration:"none",color:"white"}}>
-                  <span className="sidebarListItemText">Cuenta</span>
+            <li className="sidebarListItem">
+                
+                <Link  to="/cafeteriaAdmin" style={{textDecoration:"none",color:"white"}}>
+                  <LocalDiningOutlined  className="sidebarIcon" />
+                  <span className="sidebarListItemText">Cafeteria</span>
                 </Link>
-            </li>*/}
+            </li>
         </ul>
         <Share /> <ModalPublicar/>
         

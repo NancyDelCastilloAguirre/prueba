@@ -1,0 +1,193 @@
+/* Estilos base */
+.comida{
+    width: 100%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    margin: 30px 0;
+    background-color: #332E34;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.comidaLink{
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 20px;
+    padding-top: 15px;
+    align-items: center;
+}
+a:visited {
+    color:rgb(114, 97, 201); /* color para links visitados */
+}
+
+.comidaWrapper{
+    padding: 10px;
+}
+
+.comidaTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comidaTopLeft{
+    display: flex; 
+    margin-left: 14px;
+}
+
+.comidaProfileImg{
+    width: 87px;
+    height: 87px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comidaUsername{
+    font-size: 42px;
+    color: white;
+    margin: 0 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.comidaDate{
+    font-size:20px;
+    color: white;
+    font-weight: normal;
+    color: #C0A8B4;  
+    /*padding-left: 40px;*/
+    margin-left: 40px;
+}
+.comidaDescripcion{
+    font-size: x-large;
+    color: #ffffff;
+    font-weight: normal;
+    margin: 0 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+
+.comidaImg{
+    width: auto;
+    max-height: 480px;
+    max-width: 920px;
+    padding-top: 20px;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.comidaBottom{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comidaBottomRight{
+    align-items: center;
+    display: flex;
+    padding-top: 10px;
+}
+
+.comidaBottomLeft{
+    align-items: center;
+    display: flex;
+    padding-left: 125px;
+    padding-top: 10px;
+}
+
+.comidaLikeCounter{
+    font-size: 20px;
+    color: white;
+}
+
+/* Consultas de medios para ajustar los estilos en diferentes tamaños de pantalla */
+@media screen and (max-width: 768px) {
+  .comida {
+    flex-direction: column;
+  }
+  .comidaCenter {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .comidaTopLeft {
+    flex-wrap: wrap;
+    font-size: 13px;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 100%;
+  }
+  .comidaProfileImg {
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+  }
+
+  .comidaCenter img {
+    max-width: 100%;
+    
+  }
+  
+  .comidaImg {
+    padding: 24px;
+  }
+  
+  .comidaUsername {
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  .comidaBottomLeft,
+  .comidaBottomRight {
+    padding: 10px;
+  }
+  .comidaLink {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 10px;
+    display: inline-block;
+    width: 250px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .comidaDate{
+    font-size: small;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .comidaUsername {
+    font-size: 24px;
+    margin: 20px 0;
+    padding-left: 20px;
+  }
+  
+  .postAsunto {
+    font-size: 16px;
+    margin: 0 20px;
+  }
+  
+  .comidaLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .comidaDate{
+    font-size: small;
+    padding-left: 20px;
+  }
+  .comidaCenter img {
+    max-width: 100%;
+    
+  }
+}
