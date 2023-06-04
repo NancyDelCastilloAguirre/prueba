@@ -41,8 +41,7 @@ export default function Sidebar() {
                   <span className="sidebarListItemText">Seguidos</span>
                 </Link>
             </li>
-            <li className="sidebarListItem">
-                
+            <li className="sidebarListItem">              
                 <Link to="/saved" style={{textDecoration:"none",color:"white"}}>
                   <BookmarkBorderOutlined className="sidebarIcon" />
                   <span className="sidebarListItemText">Guardados</span>
