@@ -49,7 +49,6 @@ export default function Sidebar() {
                 <div className="modales"><ModalGuardar/></div>
             </li>
             <li className="sidebarListItem">
-                
                 <Link to="/cafeteria" style={{textDecoration:"none",color:"white"}}>
                   <LocalDiningOutlined className="sidebarIcon" />
                   <span className="sidebarListItemText">Cafetería</span>

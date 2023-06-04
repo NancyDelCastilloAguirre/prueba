@@ -1,9 +1,10 @@
 import { Connection, PublicKey, Transaction, SystemProgram, clusterApiUrl } from '@solana/web3.js';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import { useState, useEffect } from 'react';
-
+import ModalPay from "../../components/modalestuto/ModalPay"
 export default function Pagar({amount}){
     const [account, setAccount] = useState('');
+    const [modalOpen, setModalOpen] = useState(false);
     const lamports = amount * 1000000000; 
     console.log(lamports);
     useEffect(() => {
@@ -52,17 +53,28 @@ export default function Pagar({amount}){
       
         return transactionId;
       }
-      
-    return(
-        <button
-            onClick={() => { // Esto es 1 SOL
-    sendTransaction(lamports).then(transactionId => {
-      console.log(`Transacción enviada con el ID ${transactionId}`);
-    });
-  }}
->
-  Comprar
-</button>
-    )
+      <ModalPay show={modalOpen}/>
+      return (
+        <div>
+          {/* Agrega un modal aquí. Este es un ejemplo muy básico; podrías usar una biblioteca de componentes para un modal más atractivo. */}
+          {modalOpen && (
+            <div className="modal">
+              <h2>Transacción completada! Tu comida te espera en tu cafetería</h2>
+              <button onClick={() => setModalOpen(false)}>Cerrar</button>
+            </div>
+          )}
+    
+          <button
+            onClick={() => {
+              sendTransaction(lamports).then(transactionId => {
+                console.log(`Transacción enviada con el ID ${transactionId}`);
+                setModalOpen(true);  // Abre el modal cuando la transacción se completa
+              });
+            }}
+          >
+            Comprar
+          </button>
+        </div>
+      );
 
 }
